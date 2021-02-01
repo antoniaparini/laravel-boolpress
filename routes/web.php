@@ -26,4 +26,16 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+/**
+ * ROTTE PER UTENTI LOGGATI
+ */
+
+ Route::prefix('admin')
+    ->namespace('Admin')
+    ->middleware('auth')//tutte le route 'admin' devono essere protette da autenticazione
+    ->group(function(){
+        //Home Admin
+
+        //Rotte Post CRUD
+    });
+//Route::get('/home', 'HomeController@index')->name('home');
